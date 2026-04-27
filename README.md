@@ -51,7 +51,8 @@ https://raw.githubusercontent.com/Li-Baichuan-James/summarize-slides-skill/main/
 
 ### 默认交付物
 
-- 默认交付物是 `.tex`，以及在可用且工作正常的 LaTeX 工具链下生成的 `.pdf`（优先走 `xelatex` 路径）
+- 默认交付物是 `.tex` 加编译后的 `.pdf`；若本地存在可用且工作正常的 LaTeX 工具链，则按默认流程产出这两者（优先走 `xelatex` 路径）
+- 如果默认需要的 PDF 输出因缺少可用 LaTeX 工具链而无法生成，应视为该默认工作流被环境阻塞，而不是把仅有 `.tex` 视为正常成功；只有用户明确表示不需要 PDF 时，仅产出 `.tex` 才算成功
 - 除非用户明确要求不生成文件，否则聊天内摘要不算默认成功交付
 - 默认输出目录为源 PDF 同级的 `Summary - <pdf-stem>`
 - 默认文风为中文主写，重要术语保留英文括注
@@ -122,7 +123,8 @@ Summarize only Lectures 3 to 5, keep Chinese as the main language, retain Englis
 
 ### Default Deliverables
 
-- The default deliverables are `.tex` and, when a working LaTeX toolchain is available, a compiled `.pdf` using the preferred `xelatex` path
+- The default deliverables are `.tex` plus a compiled `.pdf`; when a working LaTeX toolchain is available, the default workflow is expected to produce both, using the preferred `xelatex` path
+- If the required PDF output cannot be produced because no working LaTeX toolchain is available, that default workflow is blocked by the environment rather than successfully completed as `.tex`-only, unless the user explicitly opts out of PDF output
 - Unless the user explicitly opts out of file creation, a chat-only summary is not the default successful outcome
 - The default output folder is `Summary - <pdf-stem>` alongside the source PDF
 - The default writing style is Chinese-first, with important technical terms preserved in English parentheses

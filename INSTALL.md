@@ -162,7 +162,9 @@ An installation counts as `strictly validated` by this guide only if all of the 
 
 If the platform does not expose a skill list or installed-skill view, but all file-placement checks pass, the `install result` may be reported as `path-validated` rather than `strictly validated`. Apply that fallback even when the required local `pdf` files are present but the host cannot fully confirm `pdf` discoverability at runtime.
 
-If the `pdf` companion is missing or still unavailable after Step 8, the `install result` is `incomplete` because `summarize-slides` requires `pdf` as a companion skill.
+In plain terms: full validation depends on a discoverable `pdf` companion at runtime, or on a host policy and license posture that clearly permit local retention of a path-validated `pdf` companion copy. If the host neither bundles `pdf` nor permits that local-retention fallback, this guide can report only `incomplete` for full companion validation.
+
+If the `pdf` companion is missing or still unavailable after Step 8, the `install result` is `incomplete` because `summarize-slides` requires `pdf` as a companion skill. Some hosts will therefore support only `incomplete` validation under this guide if they do not bundle `pdf` and do not permit local retention of the companion files.
 
 LaTeX is a runtime capability check, not the installation criterion.
 If `xelatex` is missing, do not mark the skill uninstalled for that reason alone.
