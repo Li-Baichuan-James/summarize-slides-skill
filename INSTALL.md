@@ -14,17 +14,17 @@ Raw files for this skill:
 - `https://raw.githubusercontent.com/Li-Baichuan-James/summarize-slides-skill/main/README.md`
 - `https://raw.githubusercontent.com/Li-Baichuan-James/summarize-slides-skill/main/LICENSE`
 
-Companion `pdf` skill source:
+Companion `pdf` skill references:
 
 - Repository path: `https://github.com/anthropics/skills/tree/main/skills/pdf`
-- Required raw files:
+- Reference raw files for policy-permitted local installs:
   - `https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/SKILL.md`
   - `https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/LICENSE.txt`
-- Recommended extra raw files:
+- Recommended extra reference files:
   - `https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/forms.md`
   - `https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/reference.md`
 
-Treat the raw URLs in this guide as the authoritative install source for a direct file-based local install.
+Treat the raw URLs for this repository as the authoritative install source for a direct file-based local install of `summarize-slides` itself.
 
 State model used in this guide:
 
@@ -81,13 +81,17 @@ Do not rely on repo metadata like `.git/` to make the skill work.
 
 5. Verify that `<skills-dir>/summarize-slides/SKILL.md` exists directly inside the folder.
 
+If the host caches skill discovery per session, restart the host, reload the skill list, or run its discoverability refresh step before continuing.
+
 6. Check the companion `pdf` status.
 Treat it as:
 - `discoverability-confirmed` if the platform exposes an installed or bundled skill list that includes `pdf`
 - `path-validated` if a local file exists at `<skills-dir>/pdf/SKILL.md`
 - `unavailable` if neither of the above is true
 
-7. If `pdf` is not available, install it from the companion source listed above.
+7. Prefer a bundled or already discoverable `pdf` skill.
+
+Only if `pdf` is still `unavailable`, and only if the host platform and the companion skill license both permit a local file install, install it from the companion references listed above.
 
 Create `<skills-dir>/pdf/` and download at least:
 - `SKILL.md`
@@ -99,8 +103,12 @@ Recommended additional files for fuller compatibility:
 
 The helper scripts mentioned by the `pdf` skill are recommended only if the target environment wants the full Anthropic skill bundle. They are not required for this guide's minimum local `pdf` companion validation.
 
+Do not present this local `pdf` copy flow as unconditional or universally supported. If platform policy, license terms, or host packaging rules do not allow local retention of the companion files, leave `pdf` as `unavailable`, report `install result` as `incomplete`, and stop.
+
 8. Re-check the `pdf status`.
 If it is still `unavailable`, report the `install result` as `incomplete` for full `summarize-slides` use and stop.
+
+If `pdf` was installed locally in Step 7 and the host caches skill discovery per session, restart, reload, or refresh discoverability again before this re-check.
 
 9. Check the local LaTeX environment with these commands, in this order:
 - `xelatex --version`
@@ -122,6 +130,8 @@ If `latex status` is `unavailable`, report that compiled PDF output is blocked i
 
 11. Verify installation state.
 If the platform exposes a skill list or installed-skill view, confirm that `summarize-slides` appears there. That counts as `discoverability-confirmed` installation evidence.
+
+If it does not appear immediately after file copy, first re-run the host's restart, reload, or skill-discovery refresh path before concluding that discoverability failed.
 
 If the platform does not expose such a mechanism, confirm that:
 - the selected `<skills-dir>` matches the host-family rule in this guide, and
