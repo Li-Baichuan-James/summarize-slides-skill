@@ -16,7 +16,7 @@
 
 ## 中文
 
-`summarize-slides` 是一个面向课程课件与 lecture PDF 的总结型 skill。它把长篇 slide deck 转成适合考前复习的结构化资料，并默认交付可落地保存的 LaTeX 源文件；在可用且工作正常的 LaTeX 工具链下，它还会生成编译后的 PDF，而不是只在聊天里给出一段摘要。
+`summarize-slides` 是一个面向课程课件与 lecture PDF 的总结型 skill。它把长篇 slide deck 转成适合考前复习的结构化资料，并默认交付可落地保存的 LaTeX 源文件；默认编译后的 PDF 路径依赖本地可用的 `xelatex`，而不是只在聊天里给出一段摘要。
 
 这个 skill 的目标不是泛泛而谈地“总结一下”，而是产出真正能拿去复习的文档：覆盖考点、概念、公式、代表性例子与解题提示，并尽量附带页码引用，方便回查原始课件。
 
@@ -51,8 +51,8 @@ https://raw.githubusercontent.com/Li-Baichuan-James/summarize-slides-skill/main/
 
 ### 默认交付物
 
-- 默认交付物是 `.tex` 加编译后的 `.pdf`；若本地存在可用且工作正常的 LaTeX 工具链，则按默认流程产出这两者（优先走 `xelatex` 路径）
-- 如果默认需要的 PDF 输出因缺少可用 LaTeX 工具链而无法生成，应视为该默认工作流被环境阻塞，而不是把仅有 `.tex` 视为正常成功；只有用户明确表示不需要 PDF 时，仅产出 `.tex` 才算成功
+- 默认交付物是 `.tex` 加编译后的 `.pdf`；默认编译 PDF 的工作流依赖本地可用且工作正常的 `xelatex`
+- 如果缺少 `xelatex`，默认需要的 PDF 输出应视为被环境阻塞，而不是把仅有 `.tex` 视为正常成功；只有用户明确表示不需要 PDF 时，仅产出 `.tex` 才算成功
 - 除非用户明确要求不生成文件，否则聊天内摘要不算默认成功交付
 - 默认输出目录为源 PDF 同级的 `Summary - <pdf-stem>`
 - 默认文风为中文主写，重要术语保留英文括注
@@ -88,7 +88,7 @@ https://raw.githubusercontent.com/Li-Baichuan-James/summarize-slides-skill/main/
 
 ## English
 
-`summarize-slides` is a skill for turning lecture PDFs, exported slide decks, and course handout PDFs into exam-oriented study materials. Its default outcome is a saved LaTeX source file and, when a working LaTeX toolchain is available, a compiled PDF rather than just an inline chat summary.
+`summarize-slides` is a skill for turning lecture PDFs, exported slide decks, and course handout PDFs into exam-oriented study materials. Its default outcome is a saved LaTeX source file and a compiled PDF, and that default compiled-PDF path depends on locally available `xelatex` rather than just falling back to an inline chat summary.
 
 This repository is meant for users who want a publication-quality review artifact: key points, formulas, concepts, representative examples, and practical study guidance, with page references wherever the source quality allows.
 
@@ -123,8 +123,8 @@ Summarize only Lectures 3 to 5, keep Chinese as the main language, retain Englis
 
 ### Default Deliverables
 
-- The default deliverables are `.tex` plus a compiled `.pdf`; when a working LaTeX toolchain is available, the default workflow is expected to produce both, using the preferred `xelatex` path
-- If the required PDF output cannot be produced because no working LaTeX toolchain is available, that default workflow is blocked by the environment rather than successfully completed as `.tex`-only, unless the user explicitly opts out of PDF output
+- The default deliverables are `.tex` plus a compiled `.pdf`; the default compiled-PDF workflow depends on locally available and working `xelatex`
+- If the required PDF output cannot be produced because `xelatex` is missing, that default workflow is blocked by the environment rather than successfully completed as `.tex`-only, unless the user explicitly opts out of PDF output
 - Unless the user explicitly opts out of file creation, a chat-only summary is not the default successful outcome
 - The default output folder is `Summary - <pdf-stem>` alongside the source PDF
 - The default writing style is Chinese-first, with important technical terms preserved in English parentheses

@@ -13,8 +13,8 @@ Turn a long lecture PDF into a concise, exam-oriented LaTeX cheat sheet and comp
 
 - **REQUIRED COMPANION SKILL:** use `pdf` for PDF intake and reading. This workflow is not optional.
 - **NO OTHER SKILLS:** when this skill applies, use only `summarize-slides` plus `pdf`. Do **not** invoke `dispatching-parallel-agents` or any other additional skill. Any task-splitting, reader dispatch, verifier separation, or parallelization logic needed for this workflow is already defined inside this skill.
-- Check that locally installed `xelatex` is available before promising the required PDF output.
-- Default deliverables are `.tex` and compiled `.pdf`, with the PDF treated as the required final artifact unless the user explicitly asks not to produce it.
+- Check that locally installed `xelatex` is available before promising the default required compiled PDF output.
+- Default deliverables are `.tex` and compiled `.pdf`, with the PDF treated as the required final artifact unless the user explicitly asks not to produce it, and the default compiled PDF path requires `xelatex`.
 - When this skill applies, a chat-only or inline summary is **not** a successful final deliverable unless the user explicitly asks for summary-only output or explicitly opts out of file creation.
 - If the user gives parsed text, OCR text, extracted images, or page-by-page content originating from a lecture PDF instead of the raw PDF file, treat it as the same slide-summarization task and still produce the document artifacts by default.
 - By default, place all generated artifacts in a single folder named `Summary - <pdf-stem>` inside the same directory that contains the source PDF. Do not scatter `.tex`, `.pdf`, helper assets, or intermediate files elsewhere.
@@ -191,9 +191,9 @@ Default style unless the user says otherwise:
 
 ## Step 2. Check Build Environment
 
-- Verify `xelatex` exists before promising the required compiled PDF.
-- Prefer `xelatex` for Chinese text and math.
-- If no working LaTeX engine exists, stop and report that the environment prerequisite for the required PDF output is missing. Do not stop at `.tex` only when PDF output is still required.
+- Verify `xelatex` exists before promising the default required compiled PDF.
+- The default Chinese-first compiled PDF workflow requires `xelatex` for Chinese text and math.
+- If `xelatex` is missing, stop and report that the environment prerequisite for the default required PDF output is missing unless the user explicitly changes the output expectation away from compiled PDF. Do not stop at `.tex` only when PDF output is still required.
 
 ## Step 3. Read the PDF Globally First
 

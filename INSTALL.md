@@ -121,10 +121,10 @@ Treat it as:
 - `fallback-only` if `xelatex` is unavailable but `pdflatex --version` or `latexmk --version` returns a usable version string
 - `unavailable` if none of the three commands returns a usable version string
 
-Missing `xelatex` degrades or blocks the preferred Chinese-first compiled PDF path for this skill, because `summarize-slides` explicitly prefers `xelatex` for Chinese text and math.
+Missing `xelatex` means the preferred default Chinese-first compiled PDF path for this skill is not fully validated and may be blocked, because `summarize-slides` requires `xelatex` for that default workflow.
 That does not by itself mean the skill is uninstalled.
 
-If `latex status` is `fallback-only`, report that the preferred `xelatex` path is not validated and Chinese-heavy compiled PDF output may degrade or fail depending on the local TeX setup.
+If `latex status` is `fallback-only`, report that the preferred default `xelatex` path is not validated, the default Chinese-first compiled PDF workflow may be blocked, and Chinese-heavy compiled PDF output may degrade or fail depending on the local TeX setup.
 
 If `latex status` is `unavailable`, report that compiled PDF output is blocked in this environment, even if the skill installation itself is otherwise valid.
 
@@ -169,7 +169,7 @@ If the `pdf` companion is missing or still unavailable after Step 8, the `instal
 LaTeX is a runtime capability check, not the installation criterion.
 If `xelatex` is missing, do not mark the skill uninstalled for that reason alone.
 
-If `latex status` is `fallback-only`, the installation can still be `strictly validated` or `path-validated`, but the preferred Chinese-first compiled PDF workflow is degraded or unvalidated.
+If `latex status` is `fallback-only`, the installation can still be `strictly validated` or `path-validated`, but the preferred default Chinese-first compiled PDF workflow is not fully validated and may still be blocked at runtime.
 
 If `latex status` is `unavailable`, the installation can still be `strictly validated` or `path-validated` if all file-placement and `pdf` checks pass, but compiled PDF output is blocked until a TeX environment is installed.
 
