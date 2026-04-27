@@ -2,13 +2,27 @@
 
 <div align="center">
 
-## summarize-slides
+## 课件.skill
 
+---
+
+> "哎哟 真复习不过来了我艹"
+> 
+> --考试周破防哥
+
+
+![考试周破防哥](assets/summarize-slides-readme.jpg)
+
+---
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-green)](https://agentskills.io)
 [![Bilingual](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87%20%7C%20English-4c9a2a)](#中文)
 
 [中文](#中文) | [English](#english)
+
+---
 
 </div>
 
@@ -16,9 +30,9 @@
 
 ## 中文
 
-`summarize-slides` 是一个面向课程课件与 lecture PDF 的总结型 skill。它把长篇 slide deck 转成适合考前复习的结构化资料，并默认交付可落地保存的 LaTeX 源文件；默认编译后的 PDF 路径依赖本地可用的 `xelatex`，而不是只在聊天里给出一段摘要。
+还在对着几百页的课件发愁，不知如何下手？别慌，你不是一个人在崩溃。毕竟谁也不想把宝贵的摸鱼时间，浪费在逐页扒 PPT、抄重点这种无效内卷上，更不想对着满屏废话，熬得头发比 PPT 页数还少。
 
-这个 skill 的目标不是泛泛而谈地“总结一下”，而是产出真正能拿去复习的文档：覆盖考点、概念、公式、代表性例子与解题提示，并尽量附带页码引用，方便回查原始课件。
+`课件.skill` 是一款专为“不想费脑子总结课件”的懒人（哦不，是高效人士）量身打造的 agent skill，主打一个“躺平式总结”。甭管你的 PPT 多冗长、多杂乱，哪怕是讲师凑数的废话合集，它都能帮你拆解、提炼、梳理，让你告别手动逐页抠内容的痛苦。
 
 ### 安装
 
