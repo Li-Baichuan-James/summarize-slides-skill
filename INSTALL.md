@@ -91,7 +91,7 @@ Treat it as:
 
 7. Prefer a bundled or already discoverable `pdf` skill.
 
-Only if `pdf` is still `unavailable`, and only if the host platform and the companion skill license both permit a local file install, install it from the companion references listed above.
+Only if `pdf` is still `unavailable`, and only if the host platform and the companion skill license both clearly permit a local file install, install it from the companion references listed above.
 
 Create `<skills-dir>/pdf/` and download at least:
 - `SKILL.md`
@@ -103,7 +103,7 @@ Recommended additional files for fuller compatibility:
 
 The helper scripts mentioned by the `pdf` skill are recommended only if the target environment wants the full Anthropic skill bundle. They are not required for this guide's minimum local `pdf` companion validation.
 
-Do not present this local `pdf` copy flow as unconditional or universally supported. If platform policy, license terms, or host packaging rules do not allow local retention of the companion files, leave `pdf` as `unavailable`, report `install result` as `incomplete`, and stop.
+Do not present this local `pdf` copy flow as unconditional or universally supported. If platform policy, license terms, or host packaging rules do not allow local retention of the companion files, or if any of those permissions are unclear, leave `pdf` as `unavailable`, report `install result` as `incomplete`, and stop.
 
 8. Re-check the `pdf status`.
 If it is still `unavailable`, report the `install result` as `incomplete` for full `summarize-slides` use and stop.
@@ -156,11 +156,11 @@ An installation counts as `strictly validated` by this guide only if all of the 
 - `<skills-dir>/summarize-slides/SKILL.md` exists
 - `<skills-dir>/summarize-slides/README.md` exists
 - `<skills-dir>/summarize-slides/LICENSE` exists
-- companion `pdf` skill is `discoverability-confirmed`, or is `path-validated` with the required local files present
+- companion `pdf` skill is `discoverability-confirmed`
 - if `pdf` was installed locally from this guide, then `<skills-dir>/pdf/SKILL.md` and `<skills-dir>/pdf/LICENSE.txt` both exist
 - the installation is discoverability-confirmed under Step 11
 
-If the platform does not expose a skill list or installed-skill view, but all file-placement checks pass, the `install result` may be reported as `path-validated` rather than `strictly validated`.
+If the platform does not expose a skill list or installed-skill view, but all file-placement checks pass, the `install result` may be reported as `path-validated` rather than `strictly validated`. Apply that fallback even when the required local `pdf` files are present but the host cannot fully confirm `pdf` discoverability at runtime.
 
 If the `pdf` companion is missing or still unavailable after Step 8, the `install result` is `incomplete` because `summarize-slides` requires `pdf` as a companion skill.
 
