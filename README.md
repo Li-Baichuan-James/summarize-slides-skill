@@ -11,7 +11,7 @@
 > --考试周破防哥
 
 
-![考试周破防哥](assets/summarize-slides-readme.jpg)
+<img src="assets/summarize-slides-readme.jpg" alt="考试周破防哥" width="220" />
 
 ---
 
